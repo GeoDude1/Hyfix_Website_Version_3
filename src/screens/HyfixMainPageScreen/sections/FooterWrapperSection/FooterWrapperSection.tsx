@@ -35,13 +35,6 @@ export const FooterWrapperSection = (): JSX.Element => {
                 >
                   Contact Us
                 </Button>
-                <Button
-                  variant="outline"
-                  className="w-fit h-auto px-6 py-2.5 rounded-lg border-gray-800 hover:bg-gray-800 hover:text-white transition-colors [font-family:'Hind',Helvetica] font-medium text-[15px]"
-                  onClick={() => window.open("https://store.geodnet.com", "_blank")}
-                >
-                  GEODNET Store
-                </Button>
               </div>
             </div>
             <div className="md:col-span-4 flex flex-col gap-4">

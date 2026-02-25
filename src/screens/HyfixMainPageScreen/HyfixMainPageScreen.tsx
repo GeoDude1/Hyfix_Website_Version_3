@@ -9,7 +9,7 @@ import { NewsUpdatesSection } from "./sections/NewsUpdatesSection/NewsUpdatesSec
 
 export const HyfixMainPageScreen = (): JSX.Element => {
   return (
-    <main className="overflow-hidden w-full min-w-0 min-h-screen relative bg-gray-700 pt-24">
+    <main className="overflow-hidden w-full min-w-0 min-h-screen relative bg-gray-700 pt-0">
       <ScrollToTop />
       {/* Navigation - fixed so it follows on screen when scrolling */}
       <NavigationWrapperSection />
