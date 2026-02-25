@@ -16,7 +16,7 @@ export const NavigationWrapperSection = (): JSX.Element => {
 
   return (
     <header className="fixed top-0 left-0 right-0 w-full h-auto z-50 px-4 pt-4">
-      <nav className="relative w-full max-w-[1920px] mx-auto h-auto md:min-h-[88px] md:py-2 px-5 bg-white rounded-2xl shadow-md translate-y-[-1rem] animate-fade-in opacity-0 border border-gray-100">
+      <nav className="relative w-full max-w-[1920px] mx-auto h-auto md:min-h-[88px] md:py-2 px-5 bg-white/70 backdrop-blur-sm rounded-2xl shadow-md translate-y-[-1rem] animate-fade-in opacity-0 border border-white/50 transition-colors duration-300 hover:bg-white focus-within:bg-white hover:border-gray-100 focus-within:border-gray-100 hover:shadow-lg focus-within:shadow-lg">
         <div className="w-full py-2 md:py-0 md:h-full">
           <div className="hidden md:grid md:grid-cols-3 items-center h-full">
             {/* Logo - Left (dark on white) */}
@@ -36,7 +36,7 @@ export const NavigationWrapperSection = (): JSX.Element => {
                 <Link
                   key={item.label}
                   to={item.path}
-                  className={`[font-family:'Hind',Helvetica] text-sm lg:text-base tracking-[0.5px] leading-[normal] transition-all cursor-pointer relative group ${
+                  className={`[font-family:'Hind',Helvetica] text-sm lg:text-base tracking-[0.5px] leading-[normal] transition-all cursor-pointer relative group no-underline ${
                     location.pathname === item.path 
                       ? "font-semibold text-gray-900" 
                       : "font-normal text-gray-600 hover:text-gray-900"
