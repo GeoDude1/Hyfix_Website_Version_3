@@ -21,7 +21,7 @@ export const ContentDividerSection = (): JSX.Element => {
                 <img
                   className="w-[180px] h-[55px] object-contain cursor-pointer hover:opacity-80 transition-opacity"
                   alt="HYFIX Spatial Intelligence"
-                  src="https://c.animaapp.com/mlqxi4snA5QXFn/img/final-file-hyfix-black-bold-bottom-text-1-5.png"
+                  src="/hyfix_logo_updated.png"
                 />
               </Link>
             </div>
@@ -47,7 +47,7 @@ export const ContentDividerSection = (): JSX.Element => {
                 className="h-11 px-6 py-3 rounded-lg border border-solid border-blue-500 bg-gradient-to-b from-blue-500 to-blue-700 [font-family:'Hind',Helvetica] font-medium text-white text-base tracking-[0] leading-[normal] transition-transform hover:scale-105"
                 onClick={() => window.location.href = "https://share-na2.hsforms.com/2liB_rdDiRCWFkfQpIporQwee4rg"}
               >
-                Contact Us
+                Learn More
               </Button>
             </div>
           </div>

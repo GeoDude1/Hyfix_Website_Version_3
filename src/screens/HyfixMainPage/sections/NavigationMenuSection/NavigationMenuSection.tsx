@@ -21,7 +21,7 @@ export const NavigationMenuSection = (): JSX.Element => {
                 <img
                   className="w-[220px] h-[66px] object-contain translate-y-[-1rem] animate-fade-in opacity-0 [--animation-delay:0ms] cursor-pointer hover:opacity-80 transition-opacity"
                   alt="Final FILE HYFIX"
-                  src="https://c.animaapp.com/mlqxi4snA5QXFn/img/final-file-hyfix-black-bold-bottom-text-1-5.png"
+                  src="/hyfix_logo_updated.png"
                 />
               </Link>
             </div>
@@ -47,7 +47,7 @@ export const NavigationMenuSection = (): JSX.Element => {
                 className="h-11 px-6 py-3 rounded-lg border border-blue-500 bg-gradient-to-b from-blue-500 to-blue-700 [font-family:'Hind',Helvetica] font-medium text-white text-base tracking-[0] leading-[normal] transition-[transform,box-shadow] hover:scale-105 hover:shadow-lg hover:shadow-blue-500/30"
                 onClick={() => window.location.href = "https://share-na2.hsforms.com/2liB_rdDiRCWFkfQpIporQwee4rg"}
               >
-                Contact Us
+                Learn More
               </Button>
             </div>
           </div>

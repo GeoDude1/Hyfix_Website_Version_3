@@ -1,48 +1,43 @@
 import { ScrollToTop } from "../../components/ScrollToTop";
-import { ChipTechnologySection } from "./sections/ChipTechnologySection";
-import { DronesAndRoboticsOverviewSection } from "./sections/DronesAndRoboticsOverviewSection/DronesAndRoboticsOverviewSection";
-import { FooterWrapperSection } from "./sections/FooterWrapperSection";
-import { HeroImageSection } from "./sections/HeroImageSection";
-import { HyfixBrandingSection } from "./sections/HyfixBrandingSection/HyfixBrandingSection";
 import { NavigationWrapperSection } from "./sections/NavigationWrapperSection";
-import { NewsUpdatesSection } from "./sections/NewsUpdatesSection/NewsUpdatesSection";
+import { NarrativeHeroSection } from "./sections/NarrativeHeroSection/NarrativeHeroSection";
+import { ProblemBanSection } from "./sections/ProblemBanSection/ProblemBanSection";
+import { MissionStatementSection } from "./sections/MissionStatementSection/MissionStatementSection";
+import { ChipRevealSection } from "./sections/ChipRevealSection/ChipRevealSection";
+import { SolutionChipSection } from "./sections/SolutionChipSection/SolutionChipSection";
+import { CredibilitySection } from "./sections/CredibilitySection/CredibilitySection";
+import { CTASection } from "./sections/CTASection/CTASection";
+import { FooterWrapperSection } from "./sections/FooterWrapperSection";
 
 export const HyfixMainPageScreen = (): JSX.Element => {
   return (
-    <main className="overflow-hidden w-full min-w-0 min-h-screen relative bg-gray-700 pt-0">
+    <main className="overflow-hidden w-full min-w-0 min-h-screen relative bg-[#0a0a0a]">
       <ScrollToTop />
-      {/* Navigation - fixed so it follows on screen when scrolling */}
       <NavigationWrapperSection />
 
-      {/* Hero Section - Full screen dark with video */}
-      <div className="translate-y-[-1rem] animate-fade-in opacity-0 [--animation-delay:200ms]">
-        <HeroImageSection />
-      </div>
+      {/* 1. Hero — Emotional Hook */}
+      <NarrativeHeroSection />
 
-      {/* Chip Technology - White background */}
-      <div className="translate-y-[-1rem] animate-reveal opacity-0 [--animation-delay:400ms]">
-        <ChipTechnologySection />
-      </div>
+      {/* 2. Problem: The Ban */}
+      <ProblemBanSection />
 
-      {/* Drones Overview - Light gray background */}
-      <div className="bg-gray-50 translate-y-[-1rem] animate-fade-up opacity-0 [--animation-delay:600ms]">
-        <DronesAndRoboticsOverviewSection />
-      </div>
+      {/* 3. Mission Statement (Emotional Pivot) */}
+      <MissionStatementSection />
 
-      {/* Branding - White background */}
-      <div className="bg-white translate-y-[-1rem] animate-fade-in opacity-0 [--animation-delay:800ms]">
-        <HyfixBrandingSection />
-      </div>
+      {/* 6b. With a Single Chip — heading + chip content in one scroll experience */}
+      <ChipRevealSection />
 
-      {/* News - Dark background */}
-      <div className="bg-gradient-to-b from-gray-600 to-gray-700 translate-y-[-1rem] animate-reveal opacity-0 [--animation-delay:1000ms]">
-        <NewsUpdatesSection />
-      </div>
+      {/* 7. The Solution — Full-Screen Video + Chip Intro */}
+      <SolutionChipSection />
 
-      {/* Footer - Distinct background (no line) */}
-      <div className="translate-y-[-1rem] animate-fade-up opacity-0 [--animation-delay:1200ms]">
-        <FooterWrapperSection />
-      </div>
+      {/* 8. Credibility / Funding */}
+      <CredibilitySection />
+
+      {/* 9. CTA */}
+      <CTASection />
+
+      {/* Footer */}
+      <FooterWrapperSection />
     </main>
   );
 };

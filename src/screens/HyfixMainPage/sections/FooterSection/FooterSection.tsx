@@ -28,7 +28,7 @@ export const FooterSection = (): JSX.Element => {
             ref={logoRef}
             className="w-[257px] h-[79px] object-contain"
             alt="HYFIX Logo"
-            src="https://c.animaapp.com/mlqxi4snA5QXFn/img/final-file-hyfix-black-bold-bottom-text-1-5.png"
+            src="/hyfix_logo_updated.png"
           />
 
           <div ref={ctaRef} className="flex items-center gap-4">
@@ -41,7 +41,7 @@ export const FooterSection = (): JSX.Element => {
               onClick={() => window.location.href = "https://share-na2.hsforms.com/2liB_rdDiRCWFkfQpIporQwee4rg"}
             >
               <span className="[font-family:'Hind',Helvetica] font-medium text-[17px] tracking-[0] leading-[normal]">
-                Contact Us
+                Learn More
               </span>
             </Button>
           </div>

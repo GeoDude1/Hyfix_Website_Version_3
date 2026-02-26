@@ -2,6 +2,7 @@ import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import { HyfixMainPage } from "./screens/HyfixMainPage";
 import { HyfixMainPageScreen } from "./screens/HyfixMainPageScreen";
 import { HyfixMainPageWrapper } from "./screens/HyfixMainPageWrapper/HyfixMainPageWrapper";
+import { ContactPageScreen } from "./screens/ContactPageScreen/ContactPageScreen";
 
 const router = createBrowserRouter([
   {
@@ -19,6 +20,10 @@ const router = createBrowserRouter([
   {
     path: "/about",
     element: <HyfixMainPageWrapper />,
+  },
+  {
+    path: "/contact",
+    element: <ContactPageScreen />,
   },
 ]);
 

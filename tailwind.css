@@ -363,7 +363,13 @@
     min-width: 0;
   }
 
-  img, video {
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  /* Allow videos to go full-screen edge-to-edge when needed */
+  video:not(.video-fullscreen) {
     max-width: 100%;
     height: auto;
   }
