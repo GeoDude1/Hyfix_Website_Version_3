@@ -52,26 +52,17 @@ export const ChipRevealSection = (): JSX.Element => {
               </h2>
             </motion.div>
 
-            {/* Chip + paragraph — come up after heading is locked */}
+            {/* Chip only — centered */}
             <motion.div
               className="absolute inset-0 flex items-center justify-center"
               style={{ y: contentY }}
             >
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center pointer-events-auto">
-                <div className="flex justify-center lg:justify-start">
-                  <img
-                    src="/chip_image.png"
-                    alt="HYFIX Chip"
-                    className="w-[320px] md:w-[420px] lg:w-[520px] h-auto object-contain drop-shadow-[0_24px_60px_rgba(0,0,0,0.6)]"
-                  />
-                </div>
-                <div className="[font-family:'Hind',Helvetica] text-gray-100 text-lg md:text-2xl leading-relaxed max-w-2xl">
-                  <p>
-                    Our compact 7 mm × 7 mm chip integrates an application CPU, flight controller,
-                    GNSS/RTK positioning, radio, and security in a single package under 3 g—enabling
-                    next-generation autonomous systems with minimal size and power.
-                  </p>
-                </div>
+              <div className="flex justify-center items-center pointer-events-auto">
+                <img
+                  src="/chip_image.png"
+                  alt="HYFIX Chip"
+                  className="w-[320px] md:w-[420px] lg:w-[520px] h-auto object-contain drop-shadow-[0_24px_60px_rgba(0,0,0,0.6)]"
+                />
               </div>
             </motion.div>
           </div>

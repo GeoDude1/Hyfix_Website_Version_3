@@ -4,6 +4,7 @@ import { NarrativeHeroSection } from "./sections/NarrativeHeroSection/NarrativeH
 import { ProblemBanSection } from "./sections/ProblemBanSection/ProblemBanSection";
 import { MissionStatementSection } from "./sections/MissionStatementSection/MissionStatementSection";
 import { ChipRevealSection } from "./sections/ChipRevealSection/ChipRevealSection";
+import { AgricultureVideoSection } from "./sections/AgricultureVideoSection/AgricultureVideoSection";
 import { SolutionChipSection } from "./sections/SolutionChipSection/SolutionChipSection";
 import { CredibilitySection } from "./sections/CredibilitySection/CredibilitySection";
 import { CTASection } from "./sections/CTASection/CTASection";
@@ -26,6 +27,9 @@ export const HyfixMainPageScreen = (): JSX.Element => {
 
       {/* 6b. With a Single Chip — heading + chip content in one scroll experience */}
       <ChipRevealSection />
+
+      {/* 6c. Agriculture drone video + text */}
+      <AgricultureVideoSection />
 
       {/* 7. The Solution — Full-Screen Video + Chip Intro */}
       <SolutionChipSection />

@@ -39,7 +39,7 @@
       "data": {
         "viaRoute": "/home",
         "trigger": {
-          "element": "<Link to=\"/home\">\r\n            <img\r\n              className={`w-[140px] h-[44px] md:w-[200px] md:h-[64px] object-contain cursor-pointer hover:opacity-90 transition-opacity duration-300 ${\r\n                isDarkPage ? \"brightness-0 invert\" : \"\"\r\n              }`}\r\n              alt=\"HYFIX Logo\"\r\n              src=\"https://c.animaapp.com/mlqxi4snA5QXFn/img/final-file-hyfix-black-bold-bottom-text-1-5.png\"\r\n            />\r\n          </Link>",
+          "element": "<Link to=\"/home\">\r\n            <img\r\n              className={`w-[140px] h-[44px] md:w-[200px] md:h-[64px] object-contain cursor-pointer hover:opacity-90 transition-opacity duration-300 ${\r\n                isDarkPage ? \"brightness-0 invert\" : \"\"\r\n              }`}\r\n              alt=\"HYFIX Logo\"\r\n              src=\"/hyfix_logo_updated.png\"\r\n            />\r\n          </Link>",
           "line": 25,
           "endLine": 33,
           "column": 10,
@@ -87,7 +87,7 @@
       "data": {
         "viaRoute": "/home",
         "trigger": {
-          "element": "<Link to=\"/home\">\r\n            <img\r\n              className={`w-[140px] h-[44px] md:w-[200px] md:h-[64px] object-contain cursor-pointer hover:opacity-90 transition-opacity duration-300 ${\r\n                isDarkPage ? \"brightness-0 invert\" : \"\"\r\n              }`}\r\n              alt=\"HYFIX Logo\"\r\n              src=\"https://c.animaapp.com/mlqxi4snA5QXFn/img/final-file-hyfix-black-bold-bottom-text-1-5.png\"\r\n            />\r\n          </Link>",
+          "element": "<Link to=\"/home\">\r\n            <img\r\n              className={`w-[140px] h-[44px] md:w-[200px] md:h-[64px] object-contain cursor-pointer hover:opacity-90 transition-opacity duration-300 ${\r\n                isDarkPage ? \"brightness-0 invert\" : \"\"\r\n              }`}\r\n              alt=\"HYFIX Logo\"\r\n              src=\"/hyfix_logo_updated.png\"\r\n            />\r\n          </Link>",
           "line": 25,
           "endLine": 33,
           "column": 10,
@@ -119,7 +119,7 @@
       "data": {
         "viaRoute": "/home",
         "trigger": {
-          "element": "<Link to=\"/home\">\r\n            <img\r\n              className={`w-[140px] h-[44px] md:w-[200px] md:h-[64px] object-contain cursor-pointer hover:opacity-90 transition-opacity duration-300 ${\r\n                isDarkPage ? \"brightness-0 invert\" : \"\"\r\n              }`}\r\n              alt=\"HYFIX Logo\"\r\n              src=\"https://c.animaapp.com/mlqxi4snA5QXFn/img/final-file-hyfix-black-bold-bottom-text-1-5.png\"\r\n            />\r\n          </Link>",
+          "element": "<Link to=\"/home\">\r\n            <img\r\n              className={`w-[140px] h-[44px] md:w-[200px] md:h-[64px] object-contain cursor-pointer hover:opacity-90 transition-opacity duration-300 ${\r\n                isDarkPage ? \"brightness-0 invert\" : \"\"\r\n              }`}\r\n              alt=\"HYFIX Logo\"\r\n              src=\"/hyfix_logo_updated.png\"\r\n            />\r\n          </Link>",
           "line": 25,
           "endLine": 33,
           "column": 10,
@@ -151,7 +151,7 @@
       "data": {
         "viaRoute": "/home",
         "trigger": {
-          "element": "<Link to=\"/home\">\r\n            <img\r\n              className={`w-[140px] h-[44px] md:w-[200px] md:h-[64px] object-contain cursor-pointer hover:opacity-90 transition-opacity duration-300 ${\r\n                isDarkPage ? \"brightness-0 invert\" : \"\"\r\n              }`}\r\n              alt=\"HYFIX Logo\"\r\n              src=\"https://c.animaapp.com/mlqxi4snA5QXFn/img/final-file-hyfix-black-bold-bottom-text-1-5.png\"\r\n            />\r\n          </Link>",
+          "element": "<Link to=\"/home\">\r\n            <img\r\n              className={`w-[140px] h-[44px] md:w-[200px] md:h-[64px] object-contain cursor-pointer hover:opacity-90 transition-opacity duration-300 ${\r\n                isDarkPage ? \"brightness-0 invert\" : \"\"\r\n              }`}\r\n              alt=\"HYFIX Logo\"\r\n              src=\"/hyfix_logo_updated.png\"\r\n            />\r\n          </Link>",
           "line": 25,
           "endLine": 33,
           "column": 10,

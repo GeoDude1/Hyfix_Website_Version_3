@@ -12,9 +12,9 @@ export const NavigationWrapperSection = (): JSX.Element => {
     location.pathname === "/contact";
 
   return (
-    <header className="fixed top-0 left-0 right-0 w-full h-auto z-50 px-4 pt-4">
+    <header className="fixed top-0 left-0 right-0 w-full h-auto z-50 px-2 sm:px-4 lg:px-6 xl:px-8 pt-4">
       <nav
-        className={`relative w-full max-w-[1920px] mx-auto h-auto min-h-[64px] md:min-h-[88px] md:py-2 px-5 rounded-2xl translate-y-[-1rem] animate-fade-in opacity-0 transition-colors duration-300 ${
+        className={`relative w-full max-w-[1920px] lg:max-w-[2200px] xl:max-w-[2560px] 2xl:max-w-[2880px] mx-auto h-auto min-h-[64px] md:min-h-[88px] md:py-2 px-5 md:px-6 lg:px-8 xl:px-10 rounded-2xl translate-y-[-1rem] animate-fade-in opacity-0 transition-colors duration-300 ${
           isDarkPage
             ? "bg-transparent"
             : "bg-white/70 backdrop-blur-sm shadow-md hover:bg-white focus-within:bg-white hover:shadow-lg focus-within:shadow-lg"

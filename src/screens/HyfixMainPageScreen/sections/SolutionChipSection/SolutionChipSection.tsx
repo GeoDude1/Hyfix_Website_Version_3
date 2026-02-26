@@ -41,13 +41,9 @@ export const SolutionChipSection = (): JSX.Element => {
   // Fade in, hold, then fade out well before section end so no overlap with $15M section
   const opacity = useTransform(scrollYProgress, [0.05, 0.2, 0.78, 0.85], [0, 1, 1, 0]);
 
-  // Text fades in slightly after the video and holds longer
-  const textOpacity = useTransform(scrollYProgress, [0.15, 0.3, 0.78, 0.85], [0, 1, 1, 0]);
-  const textY = useTransform(scrollYProgress, [0.15, 0.3], [40, 0]);
-
-  // Feature title area fades in after headline and holds
-  const featuresOpacity = useTransform(scrollYProgress, [0.25, 0.38, 0.78, 0.85], [0, 1, 1, 0]);
-  const featuresY = useTransform(scrollYProgress, [0.25, 0.38], [20, 0]);
+  // Feature title + description only (no separate headline — agriculture section has "One chip. Built in America.")
+  const featuresOpacity = useTransform(scrollYProgress, [0.08, 0.22, 0.78, 0.85], [0, 1, 1, 0]);
+  const featuresY = useTransform(scrollYProgress, [0.08, 0.22], [24, 0]);
 
   useMotionValueEvent(scrollYProgress, "change", (v) => {
     // Unmount overlay before $15M section starts — no overlap
@@ -93,30 +89,20 @@ export const SolutionChipSection = (): JSX.Element => {
             <div className="absolute inset-0 bg-black/25" />
           </motion.div>
 
-          {/* Content overlay — bottom-left */}
-          <div className="absolute inset-0 flex flex-col items-end md:items-start justify-end px-6 pb-16 md:pb-20 pointer-events-none">
-            <motion.h2
-              className="[font-family:'Hind',Helvetica] font-bold text-white text-3xl md:text-5xl lg:text-6xl text-left leading-tight tracking-tight max-w-4xl mb-6 md:mb-8 pointer-events-auto"
-              style={{ opacity: textOpacity, y: textY }}
-            >
-              Built in America.
-              <br />
-              Designed for every drone.
-            </motion.h2>
-
-            {/* Title + description for the current video — fly in from right when that video is showing */}
+          {/* Content overlay — segment title + description; larger text and positioned for big screens */}
+          <div className="absolute inset-0 flex flex-col items-end md:items-start justify-end px-6 md:px-10 lg:px-14 xl:px-20 2xl:px-24 pb-16 md:pb-20 lg:pb-24 xl:pb-28 pointer-events-none">
             <motion.div
               key={activeFeatureIndex}
-              className="flex flex-col items-end md:items-start justify-end pointer-events-auto max-w-2xl"
+              className="flex flex-col items-end md:items-start justify-end pointer-events-auto max-w-2xl lg:max-w-3xl xl:max-w-[42rem] 2xl:max-w-[48rem]"
               style={{ opacity: featuresOpacity, y: featuresY }}
               initial={{ x: 320, opacity: 0 }}
               animate={{ x: 0, opacity: 1 }}
               transition={{ duration: 0.75, ease: [0.22, 1, 0.36, 1] }}
             >
-              <span className="[font-family:'Hind',Helvetica] text-white text-xl md:text-2xl lg:text-3xl font-semibold tracking-wide underline decoration-blue-400 decoration-2 underline-offset-4 mb-3">
+              <span className="[font-family:'Hind',Helvetica] text-white text-2xl md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-5xl font-semibold tracking-wide underline decoration-blue-400 decoration-2 underline-offset-4 mb-4 lg:mb-5">
                 {features[activeFeatureIndex].title}
               </span>
-              <p className="[font-family:'Hind',Helvetica] text-white/90 text-base md:text-lg leading-relaxed">
+              <p className="[font-family:'Hind',Helvetica] text-white/90 text-lg md:text-xl lg:text-2xl xl:text-[1.4rem] 2xl:text-[1.5rem] leading-relaxed">
                 {features[activeFeatureIndex].description}
               </p>
             </motion.div>

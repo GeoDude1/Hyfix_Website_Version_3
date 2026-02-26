@@ -1,15 +1,15 @@
 export const FooterWrapperSection = (): JSX.Element => {
   return (
-    <footer className="relative w-full bg-[#f2f3f5] py-10 md:py-12 px-4">
-      <div className="container mx-auto max-w-6xl">
-        <div className="flex flex-col gap-8 md:gap-10">
+    <footer className="relative w-full bg-[#f2f3f5] py-10 md:py-12 lg:py-14 xl:py-16 px-4 md:px-6 lg:px-8 xl:px-10 2xl:px-12">
+      <div className="container mx-auto max-w-6xl lg:max-w-7xl xl:max-w-[90rem] 2xl:max-w-[100rem]">
+        <div className="flex flex-col gap-8 md:gap-10 lg:gap-12">
           {/* Top row: logo + legal links */}
           <div className="flex flex-col md:flex-row items-center md:items-start justify-between gap-8">
             <div className="flex items-center gap-4">
               <img
                 src="/hyfix_logo_updated.png"
                 alt="HYFIX Spatial Intelligence"
-                className="h-10 md:h-12 w-auto object-contain"
+                className="h-10 md:h-12 w-auto object-contain brightness-0"
               />
             </div>
 

@@ -37,7 +37,7 @@ export const MissionStatementSection = (): JSX.Element => {
           <div className="max-w-5xl text-center">
             {/* Mission headline */}
             <h2 className="[font-family:'Hind',Helvetica] font-bold text-white text-3xl md:text-5xl lg:text-7xl leading-tight tracking-tight">
-              Enabling a
+              HYFIX is enabling a
               <br />
               Domestic Supply Chain for
               <br />
