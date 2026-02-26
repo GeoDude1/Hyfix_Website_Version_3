@@ -1,9 +1,23 @@
-import { useRef, useState } from "react";
+import { useRef, useState, useCallback } from "react";
 import { motion, useScroll, useTransform, useMotionValueEvent } from "framer-motion";
 
 export const MissionStatementSection = (): JSX.Element => {
   const containerRef = useRef<HTMLDivElement>(null!);
+  const videoRef = useRef<HTMLVideoElement>(null!);
   const [visible, setVisible] = useState(false);
+
+  const startAtSecondHalf = useCallback(() => {
+    const video = videoRef.current;
+    if (!video || !Number.isFinite(video.duration)) return;
+    video.currentTime = video.duration * 0.5;
+  }, []);
+
+  const loopSecondHalfOnly = useCallback(() => {
+    const video = videoRef.current;
+    if (!video || !Number.isFinite(video.duration)) return;
+    video.currentTime = video.duration * 0.5;
+    video.play().catch(() => {});
+  }, []);
 
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -34,7 +48,22 @@ export const MissionStatementSection = (): JSX.Element => {
           className="fixed inset-0 z-30 flex items-center justify-center px-6 pointer-events-none"
           style={{ y, opacity }}
         >
-          <div className="max-w-5xl text-center">
+          {/* Background video — second half only */}
+          <video
+            ref={videoRef}
+            autoPlay
+            muted
+            playsInline
+            className="absolute inset-0 w-full h-full object-cover"
+            onLoadedMetadata={startAtSecondHalf}
+            onCanPlay={startAtSecondHalf}
+            onEnded={loopSecondHalfOnly}
+          >
+            <source src="/rocket_ems.webm" type="video/webm" />
+          </video>
+          <div className="absolute inset-0 bg-black/50" />
+
+          <div className="relative z-10 max-w-5xl text-center">
             {/* Mission headline */}
             <h2 className="[font-family:'Hind',Helvetica] font-bold text-white text-3xl md:text-5xl lg:text-7xl leading-tight tracking-tight">
               HYFIX is enabling a
