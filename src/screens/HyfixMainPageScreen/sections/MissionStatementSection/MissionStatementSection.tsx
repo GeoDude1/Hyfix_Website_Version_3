@@ -24,21 +24,20 @@ export const MissionStatementSection = (): JSX.Element => {
     offset: ["start end", "end start"],
   });
 
-  // Moves from below → center → holds (shorter than ban) → continues up
   const y = useTransform(
     scrollYProgress,
-    [0.0, 0.25, 0.5, 0.75],
+    [0.0, 0.25, 0.5, 0.82],
     ["80vh", "0vh", "0vh", "-80vh"]
   );
 
   const opacity = useTransform(
     scrollYProgress,
-    [0.05, 0.2, 0.55, 0.7],
+    [0.05, 0.2, 0.5, 0.82],
     [0, 1, 1, 0]
   );
 
   useMotionValueEvent(scrollYProgress, "change", (v) => {
-    setVisible(v > 0.02 && v < 0.78);
+    setVisible(v > 0.02 && v < 0.85);
   });
 
   return (
@@ -61,7 +60,6 @@ export const MissionStatementSection = (): JSX.Element => {
           >
             <source src="/rocket_ems.webm" type="video/webm" />
           </video>
-          <div className="absolute inset-0 bg-black/50" />
 
           <div className="relative z-10 max-w-5xl text-center">
             {/* Mission headline */}
@@ -78,7 +76,7 @@ export const MissionStatementSection = (): JSX.Element => {
         </motion.div>
       )}
 
-      <div ref={containerRef} className="relative h-[200vh] bg-[#0a0a0a]" />
+      <div ref={containerRef} className="relative h-[180vh] bg-[#0a0a0a]" />
     </>
   );
 };

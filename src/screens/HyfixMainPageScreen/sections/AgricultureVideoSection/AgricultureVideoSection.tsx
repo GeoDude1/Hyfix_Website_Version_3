@@ -10,23 +10,23 @@ export const AgricultureVideoSection = (): JSX.Element => {
     offset: ["start end", "end start"],
   });
 
-  // Video: fade in, hold, fade out
-  const videoOpacity = useTransform(scrollYProgress, [0.03, 0.12, 0.78, 0.88], [0, 1, 1, 0]);
+  // Video: fade in early, hold, fade out before carousel
+  const videoOpacity = useTransform(scrollYProgress, [0.03, 0.12, 0.72, 0.82], [0, 1, 1, 0]);
 
   // Headline: slides up from below
   const headlineY = useTransform(scrollYProgress, [0.1, 0.28], ["60vh", "0vh"]);
   const headlineOpacity = useTransform(scrollYProgress, [0.1, 0.22], [0, 1]);
 
   // Subtitle: slides up after headline
-  const subtitleY = useTransform(scrollYProgress, [0.25, 0.42], ["50vh", "0vh"]);
-  const subtitleOpacity = useTransform(scrollYProgress, [0.25, 0.38], [0, 1]);
+  const subtitleY = useTransform(scrollYProgress, [0.2, 0.38], ["50vh", "0vh"]);
+  const subtitleOpacity = useTransform(scrollYProgress, [0.2, 0.34], [0, 1]);
 
-  // Group exit: move up and fade out
-  const groupY = useTransform(scrollYProgress, [0.65, 0.82], ["0vh", "-60vh"]);
-  const groupOpacity = useTransform(scrollYProgress, [0.65, 0.82], [1, 0]);
+  // Group exit: move up and fade out well before carousel so no overlap
+  const groupY = useTransform(scrollYProgress, [0.62, 0.78], ["0vh", "-60vh"]);
+  const groupOpacity = useTransform(scrollYProgress, [0.62, 0.78], [1, 0]);
 
   useMotionValueEvent(scrollYProgress, "change", (v) => {
-    setVisible(v > 0.02 && v < 0.88);
+    setVisible(v > 0.02 && v < 0.82);
   });
 
   return (

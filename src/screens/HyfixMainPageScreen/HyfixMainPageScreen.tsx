@@ -2,6 +2,7 @@ import { ScrollToTop } from "../../components/ScrollToTop";
 import { NavigationWrapperSection } from "./sections/NavigationWrapperSection";
 import { NarrativeHeroSection } from "./sections/NarrativeHeroSection/NarrativeHeroSection";
 import { ProblemBanSection } from "./sections/ProblemBanSection/ProblemBanSection";
+import { ImpactVideoSection } from "./sections/ImpactVideoSection/ImpactVideoSection";
 import { MissionStatementSection } from "./sections/MissionStatementSection/MissionStatementSection";
 import { ChipRevealSection } from "./sections/ChipRevealSection/ChipRevealSection";
 import { AgricultureVideoSection } from "./sections/AgricultureVideoSection/AgricultureVideoSection";
@@ -21,6 +22,9 @@ export const HyfixMainPageScreen = (): JSX.Element => {
 
       {/* 2. Problem: The Ban */}
       <ProblemBanSection />
+
+      {/* 2b. Consumer.mp4 + Consumer. Commercial. Defense. */}
+      <ImpactVideoSection />
 
       {/* 3. Mission Statement (Emotional Pivot) */}
       <MissionStatementSection />

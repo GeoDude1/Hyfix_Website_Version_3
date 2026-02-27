@@ -1,11 +1,8 @@
-import { Link, useLocation, useNavigate } from "react-router-dom";
-import { Button } from "../../../../components/ui/button";
+import { Link, useLocation } from "react-router-dom";
 
 export const NavigationWrapperSection = (): JSX.Element => {
   const location = useLocation();
-  const navigate = useNavigate();
 
-  // Transparent mode on dark pages (homepage + contact)
   const isDarkPage =
     location.pathname === "/" ||
     location.pathname === "/home" ||
@@ -21,7 +18,6 @@ export const NavigationWrapperSection = (): JSX.Element => {
         }`}
       >
         <div className="w-full h-full flex items-center justify-between py-2 md:py-0">
-          {/* Logo - Left */}
           <Link to="/home">
             <img
               className={`w-[140px] h-[44px] md:w-[200px] md:h-[64px] object-contain cursor-pointer hover:opacity-90 transition-opacity duration-300 ${
@@ -31,18 +27,6 @@ export const NavigationWrapperSection = (): JSX.Element => {
               src="/hyfix_logo_updated.png"
             />
           </Link>
-
-          {/* Contact Button - Right */}
-          <Button
-            className={`h-auto flex items-center justify-center gap-2 px-6 py-3 rounded-lg [font-family:'Hind',Helvetica] font-medium text-base tracking-[0] leading-[normal] transition-all ${
-              isDarkPage
-                ? "bg-white text-gray-900 hover:bg-gray-100"
-                : "bg-gray-900 text-white hover:bg-gray-800"
-            }`}
-            onClick={() => navigate("/contact")}
-          >
-            Contact Us
-          </Button>
         </div>
       </nav>
     </header>

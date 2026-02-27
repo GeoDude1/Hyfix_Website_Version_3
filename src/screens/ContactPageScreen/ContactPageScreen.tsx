@@ -19,20 +19,6 @@ export const ContactPageScreen = (): JSX.Element => {
       {/* Main Content */}
       <div className="pt-32 md:pt-40 pb-20 px-6">
         <div className="max-w-2xl mx-auto">
-          {/* Logo */}
-          <motion.div
-            className="flex justify-center mb-10"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-          >
-            <img
-              src="/hyfix_logo_updated.png"
-              alt="HYFIX"
-              className="w-[240px] md:w-[320px] h-auto object-contain brightness-0 invert opacity-80"
-            />
-          </motion.div>
-
           {/* Heading */}
           <motion.h1
             className="[font-family:'Hind',Helvetica] font-bold text-white text-3xl md:text-5xl text-center tracking-tight mb-12"

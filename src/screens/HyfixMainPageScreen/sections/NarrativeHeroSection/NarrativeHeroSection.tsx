@@ -70,8 +70,8 @@ export const NarrativeHeroSection = (): JSX.Element => {
               transition={{ duration: 1, delay: 0.3 }}
             >
               The Drone Revolution
-            <br />
-            Is at Risk
+              <br />
+              Is at Risk
             </motion.h1>
           </motion.div>
 

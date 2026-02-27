@@ -24,14 +24,15 @@ export const ChipRevealSection = (): JSX.Element => {
     ["80vh", "10vh", "10vh", "-60vh"]
   );
 
+  // Fade in only after a clear gap — no overlap with Mission (rocket_ems) video
   const groupOpacity = useTransform(
     scrollYProgress,
-    [0.05, 0.2, 0.7, 0.9],
+    [0.08, 0.18, 0.7, 0.9],
     [0, 1, 1, 0]
   );
 
   useMotionValueEvent(scrollYProgress, "change", (v) => {
-    setVisible(v > 0.02 && v < 0.95);
+    setVisible(v > 0.06 && v < 0.95);
   });
 
   return (
@@ -48,7 +49,7 @@ export const ChipRevealSection = (): JSX.Element => {
               style={{ y: headingY }}
             >
               <h2 className="[font-family:'Hind',Helvetica] font-bold text-white text-3xl md:text-5xl lg:text-6xl leading-tight text-center">
-                With a Single Chip.
+                With a Single Tiny Chip.
               </h2>
             </motion.div>
 
@@ -61,7 +62,7 @@ export const ChipRevealSection = (): JSX.Element => {
                 <img
                   src="/chip_image.png"
                   alt="HYFIX Chip"
-                  className="w-[320px] md:w-[420px] lg:w-[520px] h-auto object-contain drop-shadow-[0_24px_60px_rgba(0,0,0,0.6)]"
+                  className="w-[260px] md:w-[340px] lg:w-[420px] h-auto object-contain drop-shadow-[0_24px_60px_rgba(0,0,0,0.6)]"
                 />
               </div>
             </motion.div>
