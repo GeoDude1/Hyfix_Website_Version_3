@@ -38,14 +38,15 @@ export const SolutionChipSection = (): JSX.Element => {
     offset: ["start end", "end start"],
   });
 
-  const opacity = useTransform(scrollYProgress, [0, 0.12, 0.78, 0.85], [0, 1, 1, 0]);
+  // Hold the video a bit longer and fade out closer to the end
+  const opacity = useTransform(scrollYProgress, [0, 0.12, 0.86, 0.96], [0, 1, 1, 0]);
 
   // Feature title + description — fade in with section (no slide-in on first view to avoid duplicate look)
-  const featuresOpacity = useTransform(scrollYProgress, [0, 0.12, 0.78, 0.85], [0, 1, 1, 0]);
+  const featuresOpacity = useTransform(scrollYProgress, [0, 0.12, 0.86, 0.96], [0, 1, 1, 0]);
   const featuresY = useTransform(scrollYProgress, [0, 0.12], [16, 0]);
 
   useMotionValueEvent(scrollYProgress, "change", (v) => {
-    setVisible(v > 0 && v < 0.85);
+    setVisible(v > 0 && v < 0.96);
 
     // Scroll ranges per video — Public Sector & Security gets much more scroll
     // 0.00–0.48 → Consumer & FPV
@@ -72,7 +73,7 @@ export const SolutionChipSection = (): JSX.Element => {
     <>
       {visible && (
         <div className="fixed inset-0 z-30 pointer-events-none">
-          {/* Full-screen video — crossfade between videos */}
+          {/* Full-screen video — crossfade between videos on all devices, with a slightly shorter transition for mobile */}
           <motion.div className="absolute inset-0" style={{ opacity }}>
             <AnimatePresence initial={false}>
               <motion.div
@@ -81,7 +82,7 @@ export const SolutionChipSection = (): JSX.Element => {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
-                transition={{ duration: 0.4, ease: "easeInOut" }}
+                transition={{ duration: 0.3, ease: "easeInOut" }}
               >
                 <video
                   key={videoSources[activeVideo]}
@@ -98,20 +99,20 @@ export const SolutionChipSection = (): JSX.Element => {
             </AnimatePresence>
           </motion.div>
 
-          {/* Content overlay — segment title + description; larger text and positioned for big screens */}
-          <div className="absolute inset-0 flex flex-col items-end md:items-start justify-end px-6 md:px-10 lg:px-14 xl:px-20 2xl:px-24 pb-16 md:pb-20 lg:pb-24 xl:pb-28 pointer-events-none">
+          {/* Content overlay — segment title + description; centered on mobile, aligned left on larger screens */}
+          <div className="absolute inset-0 flex flex-col items-center md:items-start justify-end px-6 md:px-10 lg:px-14 xl:px-20 2xl:px-24 pb-16 md:pb-20 lg:pb-24 xl:pb-28 pointer-events-none">
             <motion.div
               key={activeFeatureIndex}
-              className="flex flex-col items-end md:items-start justify-end pointer-events-auto max-w-2xl lg:max-w-3xl xl:max-w-[42rem] 2xl:max-w-[48rem]"
+              className="flex flex-col items-center md:items-start justify-end pointer-events-auto max-w-2xl lg:max-w-3xl xl:max-w-[42rem] 2xl:max-w-[48rem]"
               style={{ opacity: featuresOpacity, y: featuresY }}
               initial={false}
               animate={{ x: 0, opacity: 1 }}
               transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
             >
-              <span className="[font-family:'Hind',Helvetica] text-white text-2xl md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-5xl font-semibold tracking-wide mb-4 lg:mb-5">
+              <span className="[font-family:'Hind',Helvetica] text-white text-2xl md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-5xl font-semibold tracking-wide mb-4 lg:mb-5 text-center md:text-left">
                 {features[activeFeatureIndex].title}
               </span>
-              <p className="[font-family:'Hind',Helvetica] text-white/90 text-lg md:text-xl lg:text-2xl xl:text-[1.4rem] 2xl:text-[1.5rem] leading-relaxed">
+              <p className="[font-family:'Hind',Helvetica] text-white/90 text-lg md:text-xl lg:text-2xl xl:text-[1.4rem] 2xl:text-[1.5rem] leading-relaxed text-center md:text-left">
                 {(() => {
                   const desc = features[activeFeatureIndex].description;
                   const split = " enables ";
@@ -131,8 +132,8 @@ export const SolutionChipSection = (): JSX.Element => {
         </div>
       )}
 
-      {/* Scroll height — extended so each video has a longer scroll range */}
-      <div ref={containerRef} className="relative h-[450vh] bg-[#0a0a0a]" />
+      {/* Scroll height — slightly shorter than original so the carousel feels snappier on mobile */}
+      <div ref={containerRef} className="relative h-[360vh] md:h-[450vh] bg-[#0a0a0a]" />
     </>
   );
 };

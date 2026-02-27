@@ -45,7 +45,7 @@ export const ChipRevealSection = (): JSX.Element => {
           <div className="relative w-full h-full max-w-7xl mx-auto">
             {/* Heading — moves up and then locks just under the nav */}
             <motion.div
-              className="absolute left-0 right-0 top-24 md:top-28 lg:top-32 flex justify-center"
+              className="absolute left-0 right-0 top-32 md:top-28 lg:top-32 flex justify-center"
               style={{ y: headingY }}
             >
               <h2 className="[font-family:'Hind',Helvetica] font-bold text-white text-3xl md:text-5xl lg:text-6xl leading-tight text-center">
@@ -53,12 +53,12 @@ export const ChipRevealSection = (): JSX.Element => {
               </h2>
             </motion.div>
 
-            {/* Chip only — centered */}
+            {/* Chip only — centered; slightly higher on mobile */}
             <motion.div
               className="absolute inset-0 flex items-center justify-center"
               style={{ y: contentY }}
             >
-              <div className="flex justify-center items-center pointer-events-auto">
+              <div className="flex justify-center items-center pointer-events-auto mt-[-80px] md:mt-0">
                 <img
                   src="/chip_image.png"
                   alt="HYFIX Chip"
@@ -70,7 +70,7 @@ export const ChipRevealSection = (): JSX.Element => {
         </motion.div>
       )}
 
-      <div ref={containerRef} className="relative h-[250vh] bg-[#0a0a0a]" />
+      <div ref={containerRef} className="relative h-[210vh] md:h-[240vh] lg:h-[250vh] bg-[#0a0a0a]" />
     </>
   );
 };

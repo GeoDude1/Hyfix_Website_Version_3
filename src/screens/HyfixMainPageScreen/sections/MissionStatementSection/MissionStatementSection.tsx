@@ -7,12 +7,22 @@ export const MissionStatementSection = (): JSX.Element => {
   const [visible, setVisible] = useState(false);
 
   const startAtSecondHalf = useCallback(() => {
+    // On small screens (mobile), let the video play normally to avoid autoplay/seek issues
+    if (typeof window !== "undefined" && window.innerWidth < 768) {
+      return;
+    }
+
     const video = videoRef.current;
     if (!video || !Number.isFinite(video.duration)) return;
     video.currentTime = video.duration * 0.5;
   }, []);
 
   const loopSecondHalfOnly = useCallback(() => {
+    // On small screens (mobile), loop the full video instead of forcing second half
+    if (typeof window !== "undefined" && window.innerWidth < 768) {
+      return;
+    }
+
     const video = videoRef.current;
     if (!video || !Number.isFinite(video.duration)) return;
     video.currentTime = video.duration * 0.5;
@@ -47,13 +57,13 @@ export const MissionStatementSection = (): JSX.Element => {
           className="fixed inset-0 z-30 flex items-center justify-center px-6 pointer-events-none"
           style={{ y, opacity }}
         >
-          {/* Background video — second half only */}
+          {/* Background video — full-screen behind text, matching other sections */}
           <video
             ref={videoRef}
             autoPlay
             muted
             playsInline
-            className="absolute inset-0 w-full h-full object-cover"
+            className="video-fullscreen absolute inset-0 w-full h-full object-cover"
             onLoadedMetadata={startAtSecondHalf}
             onCanPlay={startAtSecondHalf}
             onEnded={loopSecondHalfOnly}

@@ -70,7 +70,7 @@ export const AgricultureVideoSection = (): JSX.Element => {
         </div>
       )}
 
-      <div ref={containerRef} className="relative h-[280vh] bg-[#0a0a0a]" />
+      <div ref={containerRef} className="relative h-[220vh] md:h-[260vh] lg:h-[280vh] bg-[#0a0a0a]" />
     </>
   );
 };

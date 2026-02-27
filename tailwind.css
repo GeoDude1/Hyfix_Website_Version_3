@@ -368,7 +368,14 @@
     height: auto;
   }
 
-  /* Allow videos to go full-screen edge-to-edge when needed */
+  /* Full-bleed videos that always cover the viewport */
+  .video-fullscreen {
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+  }
+
+  /* Default videos keep intrinsic aspect, unless marked full-screen */
   video:not(.video-fullscreen) {
     max-width: 100%;
     height: auto;
