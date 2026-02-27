@@ -6,26 +6,16 @@ export const MissionStatementSection = (): JSX.Element => {
   const videoRef = useRef<HTMLVideoElement>(null!);
   const [visible, setVisible] = useState(false);
 
-  const startAtSecondHalf = useCallback(() => {
-    // On small screens (mobile), let the video play normally to avoid autoplay/seek issues
-    if (typeof window !== "undefined" && window.innerWidth < 768) {
-      return;
-    }
-
+  const startFromBeginning = useCallback(() => {
     const video = videoRef.current;
-    if (!video || !Number.isFinite(video.duration)) return;
-    video.currentTime = video.duration * 0.5;
+    if (!video) return;
+    video.currentTime = 0;
   }, []);
 
-  const loopSecondHalfOnly = useCallback(() => {
-    // On small screens (mobile), loop the full video instead of forcing second half
-    if (typeof window !== "undefined" && window.innerWidth < 768) {
-      return;
-    }
-
+  const loopFromBeginning = useCallback(() => {
     const video = videoRef.current;
-    if (!video || !Number.isFinite(video.duration)) return;
-    video.currentTime = video.duration * 0.5;
+    if (!video) return;
+    video.currentTime = 0;
     video.play().catch(() => {});
   }, []);
 
@@ -62,9 +52,9 @@ export const MissionStatementSection = (): JSX.Element => {
               muted
               playsInline
               className="video-fullscreen absolute inset-0 w-full h-full object-cover"
-              onLoadedMetadata={startAtSecondHalf}
-              onCanPlay={startAtSecondHalf}
-              onEnded={loopSecondHalfOnly}
+              onLoadedMetadata={startFromBeginning}
+              onCanPlay={startFromBeginning}
+              onEnded={loopFromBeginning}
             >
               <source src="/rocket_ems.webm" type="video/webm" />
             </video>

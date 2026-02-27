@@ -47,13 +47,13 @@ export const SolutionChipSection = (): JSX.Element => {
     setVisible(v > 0 && v < 0.86);
 
     // Scroll ranges per video — give the last state the longest scroll (lock) time
-    // 0.00–0.45 → Consumer & FPV
-    // 0.45–0.70 → Commercial & Industrial
-    // 0.70–1.00 → Public Sector & Defense (extended)
+    // 0.00–0.40 → Consumer & FPV
+    // 0.40–0.58 → Commercial & Industrial
+    // 0.58–1.00 → Public Sector & Defense (extended lock)
     let index = 0;
-    if (v < 0.45) {
+    if (v < 0.4) {
       index = 0;
-    } else if (v < 0.7) {
+    } else if (v < 0.58) {
       index = 1;
     } else {
       index = 2;
@@ -94,22 +94,22 @@ export const SolutionChipSection = (): JSX.Element => {
             </AnimatePresence>
           </motion.div>
 
-          {/* Content overlay — segment title + description; centered on mobile, aligned left on larger screens */}
-          <div className="absolute inset-0 flex flex-col items-center md:items-start justify-end px-6 md:px-10 lg:px-14 xl:px-20 2xl:px-24 pb-10 md:pb-14 lg:pb-16 xl:pb-20 pointer-events-none">
+          {/* Content overlay — on mobile: smaller text, left-aligned to show more video; on desktop: larger, left-aligned */}
+          <div className="absolute inset-0 flex flex-col items-start justify-end px-4 md:px-10 lg:px-14 xl:px-20 2xl:px-24 pb-14 md:pb-14 lg:pb-16 xl:pb-20 pointer-events-none">
             <motion.div
               key={activeFeatureIndex}
-              className="flex flex-col items-center md:items-start justify-end pointer-events-auto max-w-2xl lg:max-w-3xl xl:max-w-[42rem] 2xl:max-w-[48rem]"
+              className="flex flex-col items-start justify-end pointer-events-auto w-full max-w-[85%] md:max-w-2xl lg:max-w-3xl xl:max-w-[42rem] 2xl:max-w-[48rem]"
               style={{ opacity: featuresOpacity, y: featuresY }}
               initial={false}
               animate={{ x: 0, opacity: 1 }}
               transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
             >
               {/* Subtle, lower-opacity panel with border to keep text readable without feeling too heavy */}
-              <div className="w-full rounded-2xl bg-black/35 md:bg-black/25 border border-white/15 backdrop-blur-sm px-4 md:px-6 py-4 md:py-5">
-                <span className="[font-family:'Hind',Helvetica] text-white text-xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-4xl font-semibold tracking-wide mb-2 md:mb-3 lg:mb-4 block text-center md:text-left">
+              <div className="w-full rounded-xl md:rounded-2xl bg-black/35 md:bg-black/25 border border-white/15 backdrop-blur-sm px-3 py-2.5 md:px-6 md:py-5">
+                <span className="[font-family:'Hind',Helvetica] text-white text-sm md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-4xl font-semibold tracking-wide mb-1 md:mb-3 lg:mb-4 block text-left">
                   {features[activeFeatureIndex].title}
                 </span>
-                <p className="[font-family:'Hind',Helvetica] text-white/90 text-base md:text-lg lg:text-xl xl:text-[1.15rem] 2xl:text-[1.25rem] leading-relaxed text-center md:text-left">
+                <p className="[font-family:'Hind',Helvetica] text-white/90 text-xs md:text-lg lg:text-xl xl:text-[1.15rem] 2xl:text-[1.25rem] leading-snug md:leading-relaxed text-left">
                   {features[activeFeatureIndex].description}
                 </p>
               </div>
@@ -119,7 +119,7 @@ export const SolutionChipSection = (): JSX.Element => {
       )}
 
       {/* Scroll height — long enough that each video (especially the last) gets a clear dwell/lock */}
-      <div ref={containerRef} className="relative h-[400vh] md:h-[460vh] bg-[#0a0a0a]" />
+      <div ref={containerRef} className="relative h-[480vh] md:h-[540vh] bg-[#0a0a0a]" />
     </>
   );
 };

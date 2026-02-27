@@ -10,36 +10,28 @@ export const ChipRevealSection = (): JSX.Element => {
     offset: ["start end", "end start"],
   });
 
-  // Heading moves in, then rises together with the chip so they feel linked
+  // 1) Title enters center. 2) Pause — title locks in middle. 3) Title moves up, chip rises into center. 4) Both lock. 5) Exit.
   const headingY = useTransform(
     scrollYProgress,
-    // 0.00–0.25: slide text into center
-    // 0.25–0.40: text begins to rise as chip starts moving
-    // 0.40–0.80: text holds clearly above chip — shared lock state
-    // 0.80–0.95+: both exit upward
-    [0.0, 0.25, 0.4, 0.8, 0.95],
-    ["8vh", "0vh", "-26vh", "-26vh", "-40vh"]
+    [0.0, 0.16, 0.36, 0.56, 0.80, 0.96],
+    ["16vh", "0vh", "0vh", "-24vh", "-24vh", "-50vh"]
   );
 
-  // Chip appears later: moves from below → reaches center under heading → both lock, then exit together
   const contentY = useTransform(
     scrollYProgress,
-    // 0.40–0.60: chip rises into exact center
-    // 0.60–0.80: chip holds centered — lock state with heading above
-    // 0.80–0.95+: both exit
-    [0.4, 0.6, 0.8, 0.95],
-    ["72vh", "0vh", "0vh", "-40vh"]
+    [0.36, 0.56, 0.80, 0.96],
+    ["75vh", "0vh", "0vh", "-50vh"]
   );
   const chipOpacity = useTransform(
     scrollYProgress,
-    [0.4, 0.5, 0.8, 0.95],
+    [0.36, 0.48, 0.80, 0.96],
     [0, 1, 1, 0]
   );
 
-  // Fade in only after a clear gap — no overlap with Mission (rocket_ems) video — then hold before fading out
+  // Group fade: wider in/out bands for smoother appearance (match Impact video opacity feel)
   const groupOpacity = useTransform(
     scrollYProgress,
-    [0.08, 0.2, 0.9, 0.98],
+    [0.04, 0.14, 0.88, 0.97],
     [0, 1, 1, 0]
   );
 
@@ -82,7 +74,8 @@ export const ChipRevealSection = (): JSX.Element => {
         </motion.div>
       )}
 
-      <div ref={containerRef} className="relative h-[210vh] md:h-[240vh] lg:h-[250vh] bg-[#0a0a0a]" />
+      {/* Taller scroll region so motion is spread out and feels as smooth as Consumer/Commercial/Defense */}
+      <div ref={containerRef} className="relative h-[260vh] md:h-[300vh] lg:h-[320vh] bg-[#0a0a0a]" />
     </>
   );
 };
