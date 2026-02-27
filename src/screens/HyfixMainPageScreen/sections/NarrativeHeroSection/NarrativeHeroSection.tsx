@@ -33,7 +33,7 @@ export const NarrativeHeroSection = (): JSX.Element => {
           style={{ opacity: chinaTextOpacity }}
         >
           <motion.p
-            className="[font-family:'Hind',Helvetica] font-bold text-white text-3xl md:text-5xl lg:text-6xl text-center leading-tight tracking-tight max-w-4xl"
+            className="[font-family:'Anek Bangla',Helvetica] font-bold text-white text-3xl md:text-5xl lg:text-6xl text-center leading-tight tracking-tight max-w-4xl"
             style={{ scale: chinaTextScale }}
           >
             Today, 90% of the world's drones depend on Chinese manufacturers.
@@ -64,7 +64,7 @@ export const NarrativeHeroSection = (): JSX.Element => {
             style={{ opacity: heroTextOpacity }}
           >
             <motion.h1
-              className="[font-family:'Hind',Helvetica] font-bold text-white text-4xl md:text-6xl lg:text-7xl text-center leading-tight tracking-tight max-w-4xl"
+              className="[font-family:'Anek Bangla',Helvetica] font-bold text-white text-4xl md:text-6xl lg:text-7xl text-center leading-tight tracking-tight max-w-4xl"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, delay: 0.3 }}
@@ -80,7 +80,7 @@ export const NarrativeHeroSection = (): JSX.Element => {
             className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
             style={{ opacity: heroTextOpacity }}
           >
-            <span className="[font-family:'Hind',Helvetica] text-white/60 text-sm tracking-widest uppercase">
+            <span className="[font-family:'Anek Bangla',Helvetica] text-white/60 text-sm tracking-widest uppercase">
               Scroll
             </span>
             <motion.div

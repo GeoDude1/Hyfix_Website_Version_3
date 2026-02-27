@@ -10,11 +10,11 @@ export const ChipRevealSection = (): JSX.Element => {
     offset: ["start end", "end start"],
   });
 
-  // 1) Title enters center. 2) Pause — title locks in middle. 3) Title moves up, chip rises into center. 4) Both lock. 5) Exit.
+  // 1) Title enters center. 2) Pause — title locks in middle. 3) Title moves up, chip rises into center. 4) Both lock (heading higher). 5) Exit.
   const headingY = useTransform(
     scrollYProgress,
     [0.0, 0.16, 0.36, 0.56, 0.80, 0.96],
-    ["16vh", "0vh", "0vh", "-24vh", "-24vh", "-50vh"]
+    ["16vh", "0vh", "0vh", "-28vh", "-28vh", "-54vh"]
   );
 
   const contentY = useTransform(
@@ -47,7 +47,7 @@ export const ChipRevealSection = (): JSX.Element => {
           style={{ opacity: groupOpacity }}
         >
           <div className="relative w-full h-full max-w-7xl mx-auto">
-            {/* Heading — centered; on mobile sits slightly lower so final position isn't too high */}
+            {/* Heading — centered; on desktop final position a little higher */}
             <motion.div
               className="absolute inset-0 flex items-center justify-center pt-8 md:pt-0"
               style={{ y: headingY }}
