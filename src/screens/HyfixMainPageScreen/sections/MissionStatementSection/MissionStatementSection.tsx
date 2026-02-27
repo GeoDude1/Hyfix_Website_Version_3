@@ -53,37 +53,41 @@ export const MissionStatementSection = (): JSX.Element => {
   return (
     <>
       {visible && (
-        <motion.div
-          className="fixed inset-0 z-30 flex items-center justify-center px-6 pointer-events-none"
-          style={{ y, opacity }}
-        >
-          {/* Background video — full-screen behind text, matching other sections */}
-          <video
-            ref={videoRef}
-            autoPlay
-            muted
-            playsInline
-            className="video-fullscreen absolute inset-0 w-full h-full object-cover"
-            onLoadedMetadata={startAtSecondHalf}
-            onCanPlay={startAtSecondHalf}
-            onEnded={loopSecondHalfOnly}
-          >
-            <source src="/rocket_ems.webm" type="video/webm" />
-          </video>
+        <div className="fixed inset-0 z-30 pointer-events-none">
+          {/* Background video — structured like other full-screen sections */}
+          <motion.div className="absolute inset-0" style={{ y, opacity }}>
+            <video
+              ref={videoRef}
+              autoPlay
+              muted
+              playsInline
+              className="video-fullscreen absolute inset-0 w-full h-full object-cover"
+              onLoadedMetadata={startAtSecondHalf}
+              onCanPlay={startAtSecondHalf}
+              onEnded={loopSecondHalfOnly}
+            >
+              <source src="/rocket_ems.webm" type="video/webm" />
+            </video>
+          </motion.div>
 
-          <div className="relative z-10 max-w-5xl text-center">
-            {/* Mission headline */}
-            <h2 className="[font-family:'Hind',Helvetica] font-bold text-white text-3xl md:text-5xl lg:text-7xl leading-tight tracking-tight">
-              HYFIX is enabling a
-              <br />
-              Domestic Supply Chain for
-              <br />
-              <span className="bg-gradient-to-r from-blue-400 to-blue-500 bg-clip-text text-transparent">
-                High-Quality, Low-Cost Drones
-              </span>
-            </h2>
-          </div>
-        </motion.div>
+          {/* Text overlay — centered like other video sections */}
+          <motion.div
+            className="absolute inset-0 flex items-center justify-center px-6"
+            style={{ y, opacity }}
+          >
+            <div className="relative z-10 max-w-5xl text-center">
+              <h2 className="[font-family:'Hind',Helvetica] font-bold text-white text-3xl md:text-5xl lg:text-7xl leading-tight tracking-tight">
+                HYFIX is enabling a
+                <br />
+                Domestic Supply Chain for
+                <br />
+                <span className="bg-gradient-to-r from-blue-400 to-blue-500 bg-clip-text text-transparent">
+                  High-Quality, Low-Cost Drones
+                </span>
+              </h2>
+            </div>
+          </motion.div>
+        </div>
       )}
 
       <div ref={containerRef} className="relative h-[180vh] bg-[#0a0a0a]" />

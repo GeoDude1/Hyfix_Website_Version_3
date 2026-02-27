@@ -8,7 +8,6 @@ import { ChipRevealSection } from "./sections/ChipRevealSection/ChipRevealSectio
 import { AgricultureVideoSection } from "./sections/AgricultureVideoSection/AgricultureVideoSection";
 import { SolutionChipSection } from "./sections/SolutionChipSection/SolutionChipSection";
 import { CredibilitySection } from "./sections/CredibilitySection/CredibilitySection";
-import { CTASection } from "./sections/CTASection/CTASection";
 import { FooterWrapperSection } from "./sections/FooterWrapperSection";
 
 export const HyfixMainPageScreen = (): JSX.Element => {
@@ -38,11 +37,8 @@ export const HyfixMainPageScreen = (): JSX.Element => {
       {/* 7. The Solution — Full-Screen Video + Chip Intro */}
       <SolutionChipSection />
 
-      {/* 8. Credibility / Funding */}
+      {/* 8. Credibility + CTA combined */}
       <CredibilitySection />
-
-      {/* 9. CTA */}
-      <CTASection />
 
       {/* Footer */}
       <FooterWrapperSection />

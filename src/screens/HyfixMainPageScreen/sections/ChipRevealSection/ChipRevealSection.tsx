@@ -10,29 +10,41 @@ export const ChipRevealSection = (): JSX.Element => {
     offset: ["start end", "end start"],
   });
 
-  // Heading moves from center → just under nav → then exits with content
+  // Heading moves in, then rises together with the chip so they feel linked
   const headingY = useTransform(
     scrollYProgress,
-    [0.0, 0.2, 0.7, 0.95],
-    ["30vh", "0vh", "0vh", "-60vh"]
+    // 0.00–0.25: slide text into center
+    // 0.25–0.40: text begins to rise as chip starts moving
+    // 0.40–0.80: text holds clearly above chip — shared lock state
+    // 0.80–0.95+: both exit upward
+    [0.0, 0.25, 0.4, 0.8, 0.95],
+    ["8vh", "0vh", "-26vh", "-26vh", "-40vh"]
   );
 
-  // Chip + paragraph move from below → middle → then exit with heading
+  // Chip appears later: moves from below → reaches center under heading → both lock, then exit together
   const contentY = useTransform(
     scrollYProgress,
-    [0.25, 0.45, 0.7, 0.95],
-    ["80vh", "10vh", "10vh", "-60vh"]
+    // 0.40–0.60: chip rises into exact center
+    // 0.60–0.80: chip holds centered — lock state with heading above
+    // 0.80–0.95+: both exit
+    [0.4, 0.6, 0.8, 0.95],
+    ["72vh", "0vh", "0vh", "-40vh"]
+  );
+  const chipOpacity = useTransform(
+    scrollYProgress,
+    [0.4, 0.5, 0.8, 0.95],
+    [0, 1, 1, 0]
   );
 
-  // Fade in only after a clear gap — no overlap with Mission (rocket_ems) video
+  // Fade in only after a clear gap — no overlap with Mission (rocket_ems) video — then hold before fading out
   const groupOpacity = useTransform(
     scrollYProgress,
-    [0.08, 0.18, 0.7, 0.9],
+    [0.08, 0.2, 0.9, 0.98],
     [0, 1, 1, 0]
   );
 
   useMotionValueEvent(scrollYProgress, "change", (v) => {
-    setVisible(v > 0.06 && v < 0.95);
+    setVisible(v > 0.06 && v < 0.97);
   });
 
   return (
@@ -43,22 +55,22 @@ export const ChipRevealSection = (): JSX.Element => {
           style={{ opacity: groupOpacity }}
         >
           <div className="relative w-full h-full max-w-7xl mx-auto">
-            {/* Heading — moves up and then locks just under the nav */}
+            {/* Heading — centered; on mobile sits slightly lower so final position isn't too high */}
             <motion.div
-              className="absolute left-0 right-0 top-32 md:top-28 lg:top-32 flex justify-center"
+              className="absolute inset-0 flex items-center justify-center pt-8 md:pt-0"
               style={{ y: headingY }}
             >
               <h2 className="[font-family:'Hind',Helvetica] font-bold text-white text-3xl md:text-5xl lg:text-6xl leading-tight text-center">
-                With a Single Tiny Chip.
+                Starting with a Tiny Chip.
               </h2>
             </motion.div>
 
-            {/* Chip only — centered; slightly higher on mobile */}
+            {/* Chip only — centered; nudged up slightly on mobile to feel perfectly centered */}
             <motion.div
               className="absolute inset-0 flex items-center justify-center"
-              style={{ y: contentY }}
+              style={{ y: contentY, opacity: chipOpacity }}
             >
-              <div className="flex justify-center items-center pointer-events-auto mt-[-80px] md:mt-0">
+              <div className="flex justify-center items-center pointer-events-auto mt-[-32px] md:mt-0">
                 <img
                   src="/chip_image.png"
                   alt="HYFIX Chip"

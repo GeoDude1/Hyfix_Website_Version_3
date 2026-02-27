@@ -63,7 +63,7 @@ export const AgricultureVideoSection = (): JSX.Element => {
                 className="[font-family:'Hind',Helvetica] text-white text-lg md:text-xl lg:text-2xl tracking-tight mt-5 md:mt-6"
                 style={{ y: subtitleY, opacity: subtitleOpacity }}
               >
-                Flight Control · Precise Positioning · Secure Comms · Onboard Intelligence
+                Flight Control · Precise Positioning · Secure Comms · Onboard AI
               </motion.p>
             </div>
           </motion.div>

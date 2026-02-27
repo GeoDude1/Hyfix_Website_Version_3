@@ -20,7 +20,7 @@ export const NavigationWrapperSection = (): JSX.Element => {
         <div className="w-full h-full flex items-center justify-between py-2 md:py-0">
           <Link to="/home">
             <img
-              className={`w-[140px] h-[44px] md:w-[200px] md:h-[64px] object-contain cursor-pointer hover:opacity-90 transition-opacity duration-300 ${
+              className={`w-[112px] h-[35px] md:w-[160px] md:h-[51px] object-contain cursor-pointer hover:opacity-90 transition-opacity duration-300 ${
                 isDarkPage ? "brightness-0 invert" : ""
               }`}
               alt="HYFIX Logo"
